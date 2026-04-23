@@ -4,55 +4,143 @@
   <title>Mr Mekw EDGJ Game</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="Style.css">
+
+  <style>
+    /* ID'S */
+    #Roomport {
+    /* to do
+    container box center
+    */
+    border:groove 5px green;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    #Sideport {
+        float: right;
+        border: ridge 5px red;
+        display: inline-flexbox;
+        align-items: center;
+        justify-content: right;
+    }
+
+    /* CLASSES */
+    .button {
+        /* button size, font size, bort */
+        border: groove 5px;
+    }
+    .button:hover {
+        border: ridge;
+    }
+
+    .open {
+        background-color: green;
+        color: rgb(241, 241, 241);
+    }
+    .open:hover {
+        background-color: rgb(0, 160, 0);
+    }
+
+    .closed {
+        background-color: darkred;
+        color: rgb(241, 241, 241);
+    }
+    .closed:hover {
+        background-color: rgb(182, 0, 0);
+    }
+  </style>
 </head>
+
 <body>
     <div id="Roomport">
-        <div class="Entrance" OpenDoor()>
-            <h1>Entrance</h1>
-        </div>
-
-        <div class="LivingRoom">
-            <h1>Living Room</h1>
-            <!-- reset buttons -->
-        </div>
-
-        <div class="Hallway">
-            <h1>Hallway</h1>
-        </div>
-
-        <div class="Bathroom">
-            <h1>Bathroom</h1>
-        </div>
-
-        <div class="Bedroom">
-            <h1>Bedroom</h1>
-        </div>
+        <!-- make a container that holds the html of the currently selected room
+         i.e. room html runs inside of game.html -->
+         <iframe id="currentRoom" width="1200" height="900" src="game/Entrance.html"></iframe>
+         <!-- width="1300" height="975"  fits my screen better, but I don't want to use such a funky size -->
+          <p id="console">Game Console: any updates will appear here</p>
     </div>
     
     <div id="Sideport">
         <aside><!-- map & key info -->
-            <button id="Ent_button">Entrance</button>
-            <button id="LRD_button">Living Room</button>
-            <button id="HW_button">Hallway</button>
-            <button id="BR_button">Bathroom</button>
-            <button id="Bed_button">Bedroom</button>
+            <button id="Ent_button" class="open">Entrance</button>
+            <br /><button id="LRD_button" class="closed">Living Room</button>
+            <br /><button id="HW_button" class="open">Hallway</button>
+            <br /><button id="BR_button" class="closed">Bathroom</button>
+            <br /><button id="Bed_button" class="closed">Bedroom</button>
         </aside>
     </div>
 
 
-    <script src="Script.js">
-        function OpenDoor() {
-            if (this.class != "doorClosed") {
-                // text "you're already in this room"
+    <script>
+        var _currentroom = document.getElementById("Ent_button");
+
+
+        document.getElementById("Ent_button").addEventListener('click', function() {
+            if (this.className=="closed"){
+                document.getElementById("console").textContent = "You can't enter this room :/";
             } else {
-                if (currentKeys >= reqKeys) {
-                    this.classList.remove("doorClosed");
-                    this.classList.add("doorOpened");
-                } else if (this.class == "doorClosed") {
-                    // create a pop up (edit the )
-                    // add a text that 
+                if (_currentroom == document.getElementById("Ent_button")){
+                    document.getElementById("console").textContent = "You're already here, silly";
+                } else {
+                    document.getElementById("currentRoom").src="game/Entrance.html";
+                    _currentroom = document.getElementById("Ent_button");
                 }
             }
-        }
+            
+        });
+        document.getElementById("LRD_button").addEventListener('click', function() {
+            if (this.className=="closed"){
+                document.getElementById("console").textContent = "You can't enter this room :/";
+            } else {
+                if (_currentroom == document.getElementById("LRD_button")){
+                    document.getElementById("console").textContent = "You're already here, silly";
+                } else {
+                    document.getElementById("currentRoom").src="game/LivingRoom.html";
+                    _currentroom = document.getElementById("LRD_button");
+                }
+            }
+        });
+        document.getElementById("HW_button").addEventListener('click', function() {
+            if (this.className=="closed"){
+                document.getElementById("console").textContent = "You can't enter this room :/";
+            } else {
+                if (_currentroom == document.getElementById("HW_button")){
+                    document.getElementById("console").textContent = "You're already here, silly";
+                } else {
+                    document.getElementById("currentRoom").src="game/Hallway.html";
+                    _currentroom = document.getElementById("HW_button");
+                }
+            }
+        });
+        document.getElementById("BR_button").addEventListener('click', function() {
+            if (this.className=="closed"){
+                document.getElementById("console").textContent = "You can't enter this room :/";
+            } else {
+                if (_currentroom == document.getElementById("BR_button")){
+                    document.getElementById("console").textContent = "You're already here, silly";
+                } else {
+                    document.getElementById("currentRoom").src="game/Bathroom.html";
+                    _currentroom = document.getElementById("BR_button");
+                }
+            }
+        });
+        document.getElementById("Bed_button").addEventListener('click', function() {
+            if (this.className=="closed"){
+                document.getElementById("console").textContent = "You can't enter this room :/";
+            } else {
+                if (_currentroom == document.getElementById("Bed_button")){
+                    document.getElementById("console").textContent = "You're already here, silly";
+                } else {
+                    document.getElementById("currentRoom").src="game/Bedroom.html";
+                    _currentroom = document.getElementById("BR_button");
+                }
+            }
+        });
+
+        
+        /*
+        THIS PROBABLY WONT WORK, I' M JUST BULLSHITTING IN COMMENTS :3
+        */
     </script>
 </body>

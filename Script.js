@@ -1,27 +1,6 @@
 // VARIABLES:
 // counter for current # of keys
-var currentKeys;
 
-// DOORS CLASS:
-class Door {
-    // required amount of keys per door
-    constructor() {
-        var reqKeys;
-    }
-
-    // 
-}
-
-// Living Room Door
-class LRDoor extends Door {
-    reqKeys = 2;
-    
-}
-
-
-// SET UP:
-// all of the doors
-const lrd = new LRDoor();
 
 // FUNCTIONS:
 // if the door is unopened
@@ -33,4 +12,23 @@ const lrd = new LRDoor();
 // if door is opened
 //      send user to room past door
 
-
+        if (this.class != open) {
+            if (currentKeys < reqKeys) {
+                alert("You don't have enough keys :/");
+                /* document.getElementByID("closepop"). idk add text "you don't have enough keys"
+                delay 5 seconds
+                document.getElementByID("closepop").hide-popover ? */
+            } else if (currentKeys >= reqKeys) {
+                /*document.getElementByID("openpop").addtext "you open the door"
+                delay 5 seconds
+                document.getElementByID("openpop").hide-popover
+                iframe source change to html corresponding to button pressed */
+            }
+        } else {
+                /* if (iframe src == button html) {
+                    "you're already here silly"
+                } else {
+                    popover "You go through the door"
+                    iframe src -> button html
+                } */
+        }
