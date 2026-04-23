@@ -1,19 +1,39 @@
-
-/*
-
-/* CLASSES /
-.Room {
+/* ID's */
+/* Living Room Door Button */
+/* HallWay Button */
+/* BathRoom Button */
+#Roomport {
     /* to do
     container box center
-    /
+    */
     border:groove;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.LRDoor {
-    visibility: hidden;
+/* CLASSES */
+.Entrance {
+    display: flex;
+    background-image: url("media/entrance.png");
+}
+
+.LivingRoom {
+    display: none;
     /* to do
     add background
-    /
+    */
+    background-image: url("media/livingRoom.png");
 }
 
-*/
+.Hallway {
+    display: none;
+}
+
+.Bathroom {
+    display: none;
+}
+
+.Bedroom {
+    display: none;
+}

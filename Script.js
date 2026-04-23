@@ -33,14 +33,4 @@ const lrd = new LRDoor();
 // if door is opened
 //      send user to room past door
 
-function OpenDoor() {
-    if (this.class != "doorClosed") {
-        if (currentKeys >= reqKeys) {
-            this.classList.remove("doorClosed");
-            this.classList.add("doorOpened");
-        } else if (this.class == "doorClosed") {
-            // create a pop up (edit the )
-            // add a text that 
-        }
-    }
-}
+

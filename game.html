@@ -6,13 +6,53 @@
   <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-    <aside><!-- map & key info -->
-        <button>Living Room Door</button>
-    </aside>
+    <div id="Roomport">
+        <div class="Entrance" OpenDoor()>
+            <h1>Entrance</h1>
+        </div>
 
+        <div class="LivingRoom">
+            <h1>Living Room</h1>
+            <!-- reset buttons -->
+        </div>
 
-    <div class="LRDoor">
-        <!-- reset buttons -->
+        <div class="Hallway">
+            <h1>Hallway</h1>
+        </div>
+
+        <div class="Bathroom">
+            <h1>Bathroom</h1>
+        </div>
+
+        <div class="Bedroom">
+            <h1>Bedroom</h1>
+        </div>
     </div>
     
+    <div id="Sideport">
+        <aside><!-- map & key info -->
+            <button id="Ent_button">Entrance</button>
+            <button id="LRD_button">Living Room</button>
+            <button id="HW_button">Hallway</button>
+            <button id="BR_button">Bathroom</button>
+            <button id="Bed_button">Bedroom</button>
+        </aside>
+    </div>
+
+
+    <script src="Script.js">
+        function OpenDoor() {
+            if (this.class != "doorClosed") {
+                // text "you're already in this room"
+            } else {
+                if (currentKeys >= reqKeys) {
+                    this.classList.remove("doorClosed");
+                    this.classList.add("doorOpened");
+                } else if (this.class == "doorClosed") {
+                    // create a pop up (edit the )
+                    // add a text that 
+                }
+            }
+        }
+    </script>
 </body>
