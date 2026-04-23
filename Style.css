@@ -1,0 +1,17 @@
+
+
+
+/* CLASSES */
+.Room {
+    /* to do
+    container box center
+    */
+    border: groove;
+}
+
+.LRDoor {
+    visibility: hidden;
+    /* to do
+    add background
+    */
+}
