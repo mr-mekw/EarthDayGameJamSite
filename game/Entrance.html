@@ -2,9 +2,29 @@
 <html>
 <head>
   <title>Entrance</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=1200, height=900, initial-scale=1.0">
   <link rel="stylesheet" href="../Style.css">
+
+  <style>
+    body {
+        background-image: url("../media/entrance.png");
+        background-size: 1200px;
+        background-repeat: no-repeat;
+    }
+  </style>
 </head>
 <body>
     <h1>Entrance</h1>
+
+    <button id="mailbox"></button>
+
+    <script src="Script.js">
+        import {KeyCount} from 'Script.js';
+    </script>
+    <script>
+        
+        document.getElementById("mailbox").addEventListener('click', function(){
+            KeyCount++;
+        })
+    </script>
 </body>

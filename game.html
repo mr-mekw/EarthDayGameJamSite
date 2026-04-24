@@ -25,6 +25,18 @@
         justify-content: right;
     }
 
+    #condiv {
+        float: inline-end;
+        border:groove 5px green;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #console {
+        text-align: left;
+    }
+
     /* CLASSES */
     .button {
         /* button size, font size, bort */
@@ -56,24 +68,36 @@
     <div id="Roomport">
         <!-- make a container that holds the html of the currently selected room
          i.e. room html runs inside of game.html -->
-         <iframe id="currentRoom" width="1200" height="900" src="game/Entrance.html"></iframe>
+         <iframe id="currentRoom" width="1200" height="600" src="game/Entrance.html"></iframe>
          <!-- width="1300" height="975"  fits my screen better, but I don't want to use such a funky size -->
-          <p id="console">Game Console: any updates will appear here</p>
+          
+    </div>
+    <div id="condiv">
+        <p id="console">Game Console: any updates will appear here</p>
     </div>
     
     <div id="Sideport">
         <aside><!-- map & key info -->
             <button id="Ent_button" class="open">Entrance</button>
-            <br /><button id="LRD_button" class="closed">Living Room</button>
             <br /><button id="HW_button" class="open">Hallway</button>
+            <br /><button id="LRD_button" class="closed">Living Room</button>
             <br /><button id="BR_button" class="closed">Bathroom</button>
             <br /><button id="Bed_button" class="closed">Bedroom</button>
+            <br /> <br />
+            <button id="openDoor">Open a door</button>
+        </aside>
+        <aside>
+            <p id="keys"></p>
         </aside>
     </div>
 
 
+    <script src="Script.js">
+        import {KeyCount} from 'Script.js';
+    </script>
     <script>
         var _currentroom = document.getElementById("Ent_button");
+        KeyCount;
 
 
         document.getElementById("Ent_button").addEventListener('click', function() {
@@ -137,7 +161,14 @@
                 }
             }
         });
-
+        document.getElementById("openDoor").addEventListener('click', function(){
+            if (_currentroom == document.getElementById("openDoor")){
+                document.getElementById("console").textContent = "You're already here, silly";
+            } else {
+                document.getElementById("currentRoom").src="game/Doors.html";
+                _currentroom = document.getElementById("openDoor");
+            }
+        });
         
         /*
         THIS PROBABLY WONT WORK, I' M JUST BULLSHITTING IN COMMENTS :3
