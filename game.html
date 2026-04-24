@@ -130,6 +130,13 @@
         </aside>
     </div>
 
+    <div class="navbar">
+        <a href="index.html"><button>Home</button></a>
+        <a href="game.html"><button>Restart</button></a>
+        <a href="devlog.html"><button>DevLog</button></a>
+        <a href="credit.html"><button>Credits</button></a>
+    </div>
+
 
     <script src="Script.js">
         import {KeyCount} from 'Script.js';
@@ -138,14 +145,21 @@
         var _currentroom = document.getElementById("Ent_button");
         var _currentbutton = document.getElementById("Ent_layout");
         KeyCount;
+        var prevKey = KeyCount;
 
         function onClick() {
-            KeyCount++;
-            document.getElementById("keys").textContent = KeyCount;
+            
+            if (prevKey != KeyCount){
+                document.getElementById("console").textContent = "you already got your key";
+            } else {
+                KeyCount++;
+                document.getElementById("keys").textContent = KeyCount;
+            }
         }
 
     // #region rooms set up
         document.getElementById("Ent_button").addEventListener('click', function() {
+            prevKey=KeyCount;
             
             if (this.className=="closed"){
                 document.getElementById("console").textContent = "You can't enter this room :/";
@@ -165,6 +179,7 @@
             }
         });
         document.getElementById("LRD_button").addEventListener('click', function() {
+            prevKey=KeyCount;
             
             if (this.className=="closed"){
                 document.getElementById("console").textContent = "You can't enter this room :/";
@@ -183,6 +198,8 @@
             }
         });
         document.getElementById("HW_button").addEventListener('click', function() {
+            prevKey=KeyCount;
+
             if (this.className=="closed"){
                 document.getElementById("console").textContent = "You can't enter this room :/";
             } else {
@@ -200,6 +217,8 @@
             }
         });
         document.getElementById("BR_button").addEventListener('click', function() {
+            prevKey=KeyCount;
+
             if (this.className=="closed"){
                 document.getElementById("console").textContent = "You can't enter this room :/";
             } else {
@@ -217,12 +236,22 @@
             }
         });
         document.getElementById("Bed_button").addEventListener('click', function() {
+            prevKey=KeyCount;
+
             if (this.className=="closed"){
                 document.getElementById("console").textContent = "You can't enter this room :/";
             } else {
                 if (_currentroom == document.getElementById("Bed_button")){
                     document.getElementById("console").textContent = "You're already here, silly";
-                } else {
+                } else if (this.className != "closed"){
+                        if (document.getElementById("LRD_button").className != "closed"){
+                            if (document.getElementById("BR_button").className != "closed"){
+                                
+                                document.getElementById("console").textContent = "CONGRATS, YOU WON!!";  // this works, but 
+                                document.getElementById("currentRoom").src="game/Win.html";  // this isn't working... 
+                            }
+                        }
+                    }
                     var _prevbutton = _currentbutton;
                     document.getElementById("currentRoom").src="game/Bedroom.html";
                     _currentroom = document.getElementById("Bed_button");
@@ -231,9 +260,10 @@
                     _currentbutton.classList.remove("out");
                     _prevbutton.classList.add("out");
                 }
-            }
-        });
+            });
         document.getElementById("openDoor").addEventListener('click', function(){
+            prevKey=KeyCount;
+
             if (_currentroom == document.getElementById("openDoor")){
                 document.getElementById("console").textContent = "You're already here, silly";
             } else {
@@ -248,6 +278,7 @@
         });
     // #endregion
         
+    // #region open doors
         document.getElementById("openLR").addEventListener('click', function(){
 
             document.getElementById("console").textContent = "living room";
@@ -290,6 +321,7 @@
             }
         })
         document.getElementById("openBed").addEventListener('click', function(){
+
             document.getElementById("console").textContent = "bedroom";
             if (document.getElementById("Bed_button").className != "closed"){
                 document.getElementById("console").textContent = "whoops, you already opened that door";
@@ -309,6 +341,8 @@
                 }
             }
         })
+
+    // #endregion
         
         /*
         THIS PROBABLY WONT WORK, I' M JUST BULLSHITTING IN COMMENTS :3

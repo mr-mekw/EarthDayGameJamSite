@@ -71,7 +71,58 @@
 <th>back at 2200</th>
 <th>not really, I got a couple things done but got distracted for the most part</th>
 </tr>
+      <tr>
+        <th>4/23</th>
+        <tr><th>MORNING</th>
+          <th>started working around 0845</th>
+<th>working on adding buttons & divs for each room</th>
+<th>distracted by <a href="https://neocities.org/site/blamensir">blamensir's monastery</a> again</th>
+<th>got a bunch of screenshots from an open source interior design website for the backgrounds</th>
+<th>colored all of the buttons</th>
+<th>decided I'm probably gonna use more inline js than using the other file</th>
+<th>got the buttons to appear on the side & not underneath the game view w/ float in css!</th>
+<th>speaking of which, I also made a game view window using iframe that will show the room html's within the game html so it's not constantly switching but also it is</th>
+<th>will have to update the viewports in the heads of the room files to match the size of the iframe in the game html</th></tr> 
+        <tr><th>AFTER LUNCH</th>
+        <th>back at 1230</th>
+<th>it's been an hour and I've written untested js code in comments & figured out that popups exist… this is now due in less than 24 hours and I'm gonna have to submit something… :| (I got distracted because I wrote a funny comment & felt the need to share it on tumblr, then ended up on tumblr for a while)</th>
+<th>I think I'm gonna go take a lil walk outside, just to the park and back to get my head going again</th>
+<th>back at 1530</th>
+<th>I got an open() function connected to the onclick on the buttons for the different windows but it's clearing the page? the whole page is completely wiped & the title goes away</th>
+<th>added the first 3 days to the devlog html</th>
+<th>I FINALLY GOT A FIX FOR BUTTONS CLEARING THE PAGE, NOW I CAN FOCUS ON BUILDING OUT THE ACTUAL GAME PAGES!! YIPPIE!! actually, I'm gonna figure out if I can add if statements inside to check what the class is </th>
+<th>leaving @ 1730</th></tr>
+          <tr><th>AFTER DINNER</th>
+          <th>back @ 1815</th>
+<th>added some if statements where if you're already in a room, it doesn't reload it just pops up a lil notification that says "you're already here silly", if you're not already in the room, if the room is closed it pops up a lil notification that says "you can't enter this room yet :/", but if you're not in the room and the class is open, you switch over to that room (could make it better by trying to use a foreach but I don't want to put in the time and effort to figure that out in js rn)</th>
+<th>pushed to github to make sure I don't lose everything I did (should've done this before leaving but oh well)</th>
+<th>using <a href="https://neocities.org/site/blamensir">blamensir's monastery</a> as a reference to build Entrance.html :)  I love <a href="https://neocities.org/site/blamensir">blamensir's monastery</a>, it's my favorite internet site rn  -  the site is starting to get somewhere and I'm very happy :D</th>
+<th>I think maybe I got the KeyCount variable to be picked up by both the game & entrance html's but I don't know if they're able to actually interact with the variable (trying to use KeyCount++ on button click but… idk)</th>
+<th>I've gotta take a break for a while leaving @ 2100 (that was actually the end of my night)</th> </tr>
+      </tr>
+      <tr><th>4/24</th>
+        <tr><th>MORNING</th>
+        <th>starting at 0720</th>
+<th>I've gotta get the button counter & then place the buttons around the game files, get the door market working,add more navigation buttons (maybe make a div that is attached to the screen instead of scrolling if I have time), add a win screen, fill out credits, finish the devlog page, submit</th>
+<th>I keep accidentally breaking stuff any time I change something that already exists, so I'm just gonna leave everything as is & just add. which is not necessarily what I wanted to do. but it's what I must with the deadline in 4 and a half hours (0.0) fuck.okay.</th>
+<th>I GOT THE KEY BUTTONS TO WORK HOW I WANT!!! YESSSS!!!</th>
+<th>when I click the button to get the key, it breaks the other buttons… </th>
+<th>no it doesn't, I was on the github page & not the local file page lmao</th>
+<th>got to a point where I can get text to show up in the console if you have enough keys, </th>
+<th>I FUCKING GOT IT TO REPLACE THE CLOSED CLASS WITH OPEN CLASS!!! YESSS OKAY</th>
+<th>I've technically made a win screen but it doesn't show the Win.html in the iframe & idk what I'm doing wrong.. it's the exact same code as the others & Win.html has a body, which I assumed was the issue, but it still isn't working</th>
+<th>I added a nav bar to all of the pages so you can jump between them freely</th>
+<th>working on devlog & then I'm gonna wrap up with finishing out the credits & submit the project to the itch.io page :)</th></tr>
+      </tr>
         </tr>
       </tbody>
     </table>
+
+
+    <div class="navbar">
+      <a href="index.html"><button>Home</button></a>
+      <a href="game.html"><button>Game</button></a>
+      <a href="devlog.html"><button>Reload</button></a>
+      <a href="credit.html"><button>Credits</button></a>
+    </div>
 </body>

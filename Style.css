@@ -1,1 +1,7 @@
 /* Everything css */
+
+.navbar {
+    align-content: end;
+    display: inline-flex;
+    border: solid, black, 5px;
+}
