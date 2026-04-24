@@ -84,7 +84,8 @@
          <iframe id="currentRoom" width="1200" height="600" src="game/Entrance.html"></iframe>
          <!-- width="1300" height="975"  fits my screen better, but I don't want to use such a funky size -->
 
-         <!-- I will need to make disapearing divs that have buttons for each room -->
+         <!-- I will need to make disapearing divs that have buttons for each room,
+          really all of this should be in their respective files but I don't want to use cookies to connect the js -->
           <div id="Ent_layout" class="buttonContainer">
             <button class="keyButton" onclick="onClick()">ent test button</button>
           </div>
@@ -134,57 +135,51 @@
         function onClick() {
             KeyCount++;
             document.getElementById("keys").textContent = KeyCount;
-            _currentbutton.classList.remove("out");
-
-            // if _currentroom has class "out", remove it and add it to the previous class (or all classes? we'll see about that one)
-            if(_currentbutton.classList.contains("out")){
-                _currentbutton.classList.remove("out");
-            } else {
-                _currentbutton.classList.add("out");
-            }
         }
 
-        
-        
-        
-        //this keeps breaking when I try to update KeyCount
-        //KeyCount.addEventListener("change", (updateValue()));
-
-        //function updateValue() {
-        //    document.getElementById("keys").textContent = KeyCount;
-        //}
-
-        //function onClick() {
-        //    document.getElementsByClassName("keyButton").addEventListener('click', function() {
-        //        KeyCount++;
-        //    })
-        //}
 
         document.getElementById("Ent_button").addEventListener('click', function() {
+            
             if (this.className=="closed"){
                 document.getElementById("console").textContent = "You can't enter this room :/";
             } else {
                 if (_currentroom == document.getElementById("Ent_button")){
                     document.getElementById("console").textContent = "You're already here, silly";
                 } else {
+                    var _prevbutton = _currentbutton;
                     document.getElementById("currentRoom").src="game/Entrance.html";
                     _currentroom = document.getElementById("Ent_button");
                     _currentbutton = document.getElementById("Ent_layout");
+                    
+                    _currentbutton.classList.remove("out");
+                    _prevbutton.classList.add("out");
                 }
                 
             }
+
+
+            
+            // these are being completely ignored fsr
+            /* document.getElementsByClass("buttonContainer").classList.add("out");  <- smth to do with this & prob next line also
+            _currentbutton.classList.remove("out");
+            document.getElementById("console").textContent = "${_currentroom} , ${_currentbutton}"; */
             
         });
         document.getElementById("LRD_button").addEventListener('click', function() {
+            
             if (this.className=="closed"){
                 document.getElementById("console").textContent = "You can't enter this room :/";
             } else {
                 if (_currentroom == document.getElementById("LRD_button")){
                     document.getElementById("console").textContent = "You're already here, silly";
                 } else {
+                    var _prevbutton = _currentbutton;
                     document.getElementById("currentRoom").src="game/LivingRoom.html";
                     _currentroom = document.getElementById("LRD_button");
                     _currentbutton = document.getElementById("LRD_layout");
+
+                    _currentbutton.classList.remove("out");
+                    _prevbutton.classList.add("out");
                 }
             }
         });
@@ -195,9 +190,13 @@
                 if (_currentroom == document.getElementById("HW_button")){
                     document.getElementById("console").textContent = "You're already here, silly";
                 } else {
+                    var _prevbutton = _currentbutton;
                     document.getElementById("currentRoom").src="game/Hallway.html";
                     _currentroom = document.getElementById("HW_button");
                     _currentbutton = document.getElementById("HW_layout");
+
+                    _currentbutton.classList.remove("out");
+                    _prevbutton.classList.add("out");
                 }
             }
         });
@@ -208,9 +207,13 @@
                 if (_currentroom == document.getElementById("BR_button")){
                     document.getElementById("console").textContent = "You're already here, silly";
                 } else {
+                    var _prevbutton = _currentbutton;
                     document.getElementById("currentRoom").src="game/Bathroom.html";
                     _currentroom = document.getElementById("BR_button");
                     _currentbutton = document.getElementById("BR_layout");
+
+                    _currentbutton.classList.remove("out");
+                    _prevbutton.classList.add("out");
                 }
             }
         });
@@ -221,9 +224,13 @@
                 if (_currentroom == document.getElementById("Bed_button")){
                     document.getElementById("console").textContent = "You're already here, silly";
                 } else {
+                    var _prevbutton = _currentbutton;
                     document.getElementById("currentRoom").src="game/Bedroom.html";
                     _currentroom = document.getElementById("Bed_button");
                     _currentbutton = document.getElementById("Bed_layout");
+
+                    _currentbutton.classList.remove("out");
+                    _prevbutton.classList.add("out");
                 }
             }
         });
@@ -231,8 +238,12 @@
             if (_currentroom == document.getElementById("openDoor")){
                 document.getElementById("console").textContent = "You're already here, silly";
             } else {
+                var _prevbutton = _currentbutton;
                 document.getElementById("currentRoom").src="game/Doors.html";
                 _currentroom = document.getElementById("openDoor");
+
+                _currentbutton.classList.remove("out");
+                _prevbutton.classList.add("out");
             }
         });
         
